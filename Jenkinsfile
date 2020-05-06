@@ -25,7 +25,7 @@ pipeline {
 
     stage('AWS S3') {
       steps {
-        s3Upload 'jenkinss3buck02'
+        awsIdentity()
       }
     }
 
