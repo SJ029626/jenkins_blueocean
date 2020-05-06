@@ -25,7 +25,7 @@ pipeline {
 
     stage('AWS S3') {
       steps {
-        awsIdentity()
+        s3FindFiles(bucket: 'jenkinss3buck02', glob: 'index.html')
       }
     }
 
