@@ -19,7 +19,7 @@ pipeline {
 
     stage('AWS') {
       steps {
-        awsIdentity()
+        s3DoesObjectExist(bucket: 'jenkinss3buck02', path: '/*', pathStyleAccessEnabled: true, payloadSigningEnabled: true)
       }
     }
 
