@@ -16,10 +16,6 @@ pipeline {
         sh 'tidy -q -e *.html'
       }
     }
-    stage('Security Scan') {
-      steps { 
-        aquaMicroscanner imageName: 'alpine:latest'
-      }
-    }
+
   }
 }
