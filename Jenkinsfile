@@ -23,9 +23,9 @@ pipeline {
       }
     }
 
-    stage('s3') {
+    stage('') {
       steps {
-        s3FindFiles 'jenkinss3buck02'
+        s3Upload 'jenkinss3buck02'
       }
     }
 
