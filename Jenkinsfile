@@ -23,5 +23,11 @@ pipeline {
       }
     }
 
+    stage('AWS') {
+      steps {
+        awsIdentity()
+      }
+    }
+
   }
 }
