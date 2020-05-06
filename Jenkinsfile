@@ -17,7 +17,7 @@ pipeline {
       }
     }
 
-    stage('AWS') {
+    stage('AWS', credentials: 'aws-static') {
       steps {
         s3DoesObjectExist(bucket: 'jenkinss3buck02', path: '/*', pathStyleAccessEnabled: true, payloadSigningEnabled: true)
       }
