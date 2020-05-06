@@ -19,7 +19,7 @@ pipeline {
 
     stage('') {
       steps {
-        s3FindFiles(bucket: 'jenkins2602', pathStyleAccessEnabled: true, payloadSigningEnabled: true)
+        aquaMicroscanner(imageName: 'alpine:latest', onDisallowed: 'fail', notCompliesCmd: 'exit 1', outputFormat: 'json')
       }
     }
 
