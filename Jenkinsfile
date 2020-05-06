@@ -17,7 +17,7 @@ pipeline {
       }
     }
 
-    stage('') {
+    stage('Aqua Scanner') {
       steps {
         aquaMicroscanner(imageName: 'alpine:latest', onDisallowed: 'fail', notCompliesCmd: 'exit 1', outputFormat: 'json')
       }
