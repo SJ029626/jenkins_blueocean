@@ -17,11 +17,5 @@ pipeline {
       }
     }
 
-    stage('aws') {
-      steps {
-        s3Delete(bucket: 'jenkinss3buck02', path: '/')
-      }
-    }
-
   }
 }
