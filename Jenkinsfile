@@ -19,7 +19,7 @@ pipeline {
 
     stage('aws') {
       steps {
-        s3Upload(bucket: 'jenkinss3buck02', pathStyleAccessEnabled: true, payloadSigningEnabled: true, acl: 'Private', path: '/', text: 'hello', metadatas: '7e9f9638dae775c2f2a323dc3485fe7d')
+        s3Delete(bucket: 'jenkinss3buck02', path: '/update.sh', pathStyleAccessEnabled: true, payloadSigningEnabled: true)
       }
     }
 
