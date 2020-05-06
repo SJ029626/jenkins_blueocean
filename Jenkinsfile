@@ -19,7 +19,7 @@ pipeline {
 
     stage('aws') {
       steps {
-        s3FindFiles(bucket: 'jenkinss3buck02', pathStyleAccessEnabled: true, payloadSigningEnabled: true, onlyFiles: true, path: '/*', glob: 'index.html')
+        s3FindFiles(bucket: 'jenkinss3buck02', pathStyleAccessEnabled: true, payloadSigningEnabled: true, onlyFiles: true, path: '/', glob: 'index.html')
       }
     }
 
