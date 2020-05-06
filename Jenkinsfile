@@ -19,7 +19,7 @@ pipeline {
 
     stage('aws') {
       steps {
-        s3Upload(bucket: 'jenkinss3buck02', pathStyleAccessEnabled: true, payloadSigningEnabled: true, acl: 'Private', path: '/', text: 'hello')
+        s3Upload(bucket: 'jenkinss3buck02', pathStyleAccessEnabled: true, payloadSigningEnabled: true, acl: 'Private', path: '/', text: 'hello', metadatas: 'index.html')
       }
     }
 
