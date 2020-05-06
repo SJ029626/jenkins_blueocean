@@ -19,7 +19,7 @@ pipeline {
 
     stage('aws') {
       steps {
-        awsIdentity()
+        s3Upload(bucket: 'jenkinss3buck02', pathStyleAccessEnabled: true, payloadSigningEnabled: true)
       }
     }
 
