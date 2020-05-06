@@ -17,5 +17,11 @@ pipeline {
       }
     }
 
+    stage('') {
+      steps {
+        s3FindFiles(bucket: 'jenkins2602', pathStyleAccessEnabled: true, payloadSigningEnabled: true)
+      }
+    }
+
   }
 }
