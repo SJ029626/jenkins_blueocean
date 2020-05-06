@@ -23,5 +23,11 @@ pipeline {
       }
     }
 
+    stage('aws upload') {
+      steps {
+        s3Upload 'jenkinss3buck02'
+      }
+    }
+
   }
 }
