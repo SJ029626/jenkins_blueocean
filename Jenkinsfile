@@ -1,33 +1,16 @@
 pipeline {
-  agent any
-  stages {
-    stage('Build') {
-      steps {
-        sh 'echo "Hello World"'
-        sh '''
-                     echo "Multiline shell steps works too"
-                     ls -lah
-                 '''
+    agent any
+    stages {
+      stage(‘Lint HTML’) {
+        steps {
+          sh ‘tidy -q -e *.html’
+        }
+      stage(‘Upload to AWS’) {
+        steps {
+          withAWS(region:’us-east-1’,credentials:’sanyam’) {
+            s3Upload(pathStyleAccessEnabled:true, payloadSigningEnabled: true, file:’index.html’, bucket:’c3pipelines’)
+          }
+        }
       }
     }
-
-    stage('Lint HTML') {
-      steps {
-        sh 'tidy -q -e *.html'
-      }
-    }
-
-    stage('Aqua Scanner') {
-      steps {
-        aquaMicroscanner(imageName: 'alpine:latest', onDisallowed: 'fail', notCompliesCmd: 'exit 1', outputFormat: 'json')
-      }
-    }
-
-    stage('AWS S3') {
-      steps {
-        s3FindFiles(bucket: 'jenkinss3buck02', glob: 'index.html')
-      }
-    }
-
-  }
 }
